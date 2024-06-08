@@ -1,5 +1,17 @@
 name: 'Deploy to AWS S3'
 description: 'Deploy builds via AWS S3'
+inputs:
+  bucket:
+    description: 'The S3 bucket name'
+    required: false
+    default: 'S3-bucket'
+  region:
+    description: 'The region of the S3 bucket'
+    required: false
+    default: 'us-east-1'
+  folder:
+    description: 'The folder with the files to deploy'
+    required: true
 runs:
   using: 'node16'
   main: main.js 

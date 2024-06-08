@@ -1,7 +1,13 @@
 const core = require('@actions/core');
 
 function run() {
-  core.notice('Hello from my custom js action!') 
+  const bucket = core.getInput('bucket', { required: true });
+  const region = core.getInput('region', { required: true });
+  const folder = core.getInput('folder', { required: true });
+
+  core.notice(`Bucket = ${bucket}`)
+  core.notice(`Region = ${region}`)
+  core.notice(`Folder = ${folder}`)
 }
 
 run();
