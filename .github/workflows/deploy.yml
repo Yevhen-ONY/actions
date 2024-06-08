@@ -33,7 +33,10 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - uses: ./.github/actions/cached-deps
+      - id: cached-deps
+        uses: ./.github/actions/cached-deps
+      - name: Was cache used?
+        run: echo "${{ steps.cached-deps.outputs.cache-used }}"
       - name: Build website
         run: npm run build
       - name: Upload artifacts
